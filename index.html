@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="icon" href="img/logoW.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <style type="text/css">
+        body {
+            font: 100% Helvetica, sans-serif;
+            background-color: #e2f5f7;
+        }
+
+        .circular {
+            width: 30em;
+            height: 30em;
+            margin: 15em auto 0;
+        }
+
+        .circular svg {
+            display: block;
+            overflow: visible;
+            xtransition: 10s linear transform;
+        }
+
+        .circular svg:hover {
+            transform: rotate(-2turn);
+        }
+
+        .circular text {
+            fill: red
+        }
+
+        .circular path {
+            fill: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/logo.svg" alt="Robertson Logo" width="292" height="122">
+        <h1>Robertson College</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="programs.html">Programs</a>
+                <ul>
+                    <li><a href="register.html">Register Now</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="me1.html">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div style="background-image:url('img/background.jpg');background-size:cover;background-repeat:no-repeat;z-index:0">
+
+            <div class="circular">
+                Build your new career
+            </div>
+            <div style="z-index: 2">With us!</div>
+
+            <br><br><br>
+            <br><br><br>
+        </div>
+
+        <br><br><br>
+        <div style="text-align: center;">
+            <iframe width="1375" height="774" src="https://www.youtube.com/embed/6JtJHPST-uU" title="Calvin Parani - Community Support Worker Graduate" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <br><br><br>
+        <footer>
+            <i>
+                Copyright &copy; 2023 Bohai. All rights reserved. <br>
+                <a href="mailto:bohai.zhang@robertsoncollege.ca">bohai.zhang@robertsoncollege.ca</a>
+            </i>
+        </footer>
+
+    </main>
+
+</body>
+<script type="text/javascript">
+  function $$(selector, context) {
+    context = context || document;
+    var elements = context.querySelectorAll(selector);
+    return Array.prototype.slice.call(elements);
+}
+
+$$('.circular').forEach(function(el) {
+    var NS = "http://www.w3.org/2000/svg";
+
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 100 100");
+
+    var circle = document.createElementNS(NS, "path");
+    circle.setAttribute("d", "M0,50 a50,50 0 1,1 0,1z");
+    circle.setAttribute("id", "circle");
+
+    var text = document.createElementNS(NS, "text");
+    var textPath = document.createElementNS(NS, "textPath");
+    textPath.setAttributeNS("http://www.w3.org/1999/xlink", 'xlink:href', '#circle');
+    textPath.textContent = el.textContent;
+    text.appendChild(textPath);
+
+    svg.appendChild(circle);
+    svg.appendChild(text);
+
+    el.textContent = '';
+    el.appendChild(svg);
+});
+</script>
+</html>
